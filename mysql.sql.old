@@ -1,0 +1,68 @@
+CREATE TABLE `manguasi` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`nimi` varchar(255) NOT NULL UNIQUE,
+	`brand` varchar(255) NOT NULL,
+	`aasta` DATE NOT NULL,
+	PRIMARY KEY (`id`,`nimi`,`brand`,`aasta`)
+);
+
+CREATE TABLE `suurus` (
+	`id` INT NOT NULL,
+	`laius` FLOAT NOT NULL,
+	`pikkus` FLOAT NOT NULL,
+	`korgus` FLOAT NOT NULL,
+	`kaal` FLOAT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `kategooria` (
+	`id` INT NOT NULL,
+	`kategooria` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `tugevus` (
+	`id` INT NOT NULL,
+	`tugevus1` INT NOT NULL,
+	`tugevus2` INT,
+	`tyyp` varchar(255),
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `manguviis` (
+	`id` INT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `tolge` (
+	`id` INT NOT NULL,
+	`keel` varchar(255) NOT NULL,
+	`nimi` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`,`keel`,`nimi`)
+);
+
+CREATE TABLE `hind` (
+	`id` INT NOT NULL,
+	`praegune` FLOAT NOT NULL,
+	`algne` FLOAT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `suurus` ADD CONSTRAINT `suurus_fk0` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
+
+ALTER TABLE `kategooria` ADD CONSTRAINT `kategooria_fk0` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
+
+ALTER TABLE `tugevus` ADD CONSTRAINT `tugevus_fk0` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
+
+ALTER TABLE `manguviis` ADD CONSTRAINT `manguviis_fk0` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
+
+ALTER TABLE `tolge` ADD CONSTRAINT `tolge_fk0` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
+
+ALTER TABLE `hind` ADD CONSTRAINT `hind_fk0` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
+
+
+
+
+
+
+
