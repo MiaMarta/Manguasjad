@@ -21,7 +21,7 @@ CREATE TABLE `kategooria` (
 );
 
 CREATE TABLE `tugevus` (
-	`id` INT NOT NULL UNIQUE DEFAULT AUTOINCREMENT,
+	`id` INT NOT NULL UNIQUE,
 	`tugevus1` INT NOT NULL,
 	`tugevus2` INT,
 	`tyyp` varchar(255),
@@ -29,8 +29,8 @@ CREATE TABLE `tugevus` (
 );
 
 CREATE TABLE `manguviis` (
-	`id` INT NOT NULL UNIQUE,
-	PRIMARY KEY (`id`)
+	`manguviis` varchar(255) NOT NULL UNIQUE,
+	PRIMARY KEY (`manguviis`)
 );
 
 CREATE TABLE `tolge` (
@@ -59,11 +59,15 @@ CREATE TABLE `manguasi_kategooria` (
 	PRIMARY KEY (`manguasi_id`,`kategooria`)
 );
 
+CREATE TABLE `manguasi_manguviis` (
+	`manguasi_id` INT NOT NULL,
+	`manguviis` varchar(255) NOT NULL,
+	PRIMARY KEY (`manguasi_id`,`manguviis`)
+);
+
 ALTER TABLE `suurus` ADD CONSTRAINT `fk_suurus_manguasi` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
 
 ALTER TABLE `tugevus` ADD CONSTRAINT `fk_tugevus_manguasi` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
-
-ALTER TABLE `manguviis` ADD CONSTRAINT `fk_manguviis_manguasi` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
 
 ALTER TABLE `hind` ADD CONSTRAINT `fk_hind_manguasi` FOREIGN KEY (`id`) REFERENCES `manguasi`(`id`);
 
@@ -74,6 +78,12 @@ ALTER TABLE `manguasi_tolge` ADD CONSTRAINT `fk_manguasi_tolge_tolge` FOREIGN KE
 ALTER TABLE `manguasi_kategooria` ADD CONSTRAINT `fk_manguasi_kategooria_manguasi` FOREIGN KEY (`manguasi_id`) REFERENCES `manguasi`(`id`);
 
 ALTER TABLE `manguasi_kategooria` ADD CONSTRAINT `fk_manguasi_kategooria_kategooria` FOREIGN KEY (`kategooria`) REFERENCES `kategooria`(`kategooria`);
+
+ALTER TABLE `manguasi_manguviis` ADD CONSTRAINT `fk_manguasi_manguviis_manguasi` FOREIGN KEY (`manguasi_id`) REFERENCES `manguasi`(`id`);
+
+ALTER TABLE `manguasi_manguviis` ADD CONSTRAINT `fk_manguasi_manguviis_manguviis` FOREIGN KEY (`manguviis`) REFERENCES `manguviis`(`manguviis`);
+
+
 
 
 
