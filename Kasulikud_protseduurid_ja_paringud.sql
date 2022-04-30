@@ -44,6 +44,7 @@
                                     )
     BEGIN
       INSERT INTO manguasi (nimi, brand, aasta)
+      VALUES (manguasi_nimi, manguasi_brand, manguasi_aasta);
       INSERT INTO tugevus (tugevus1, tugevus2, tyyp)
       VALUES (tugevus_tugevus1, tugevus_tugevus2, tugevus_tyyp);
       INSERT INTO hind (praegune, algne)
