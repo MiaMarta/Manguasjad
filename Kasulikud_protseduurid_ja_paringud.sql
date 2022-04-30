@@ -31,9 +31,10 @@
 
 #Protseduurid:
   #Lisa mänguasi, antud parameetritega.
-  CREATE PROCEDURE sp_lisa_manguasi (IN nimi varchar(255), IN brand varchar(255), IN aasta date,
-                                    IN kategooria varchar(255),
-                                    IN tolge_nimi varchar(255), IN tolge_keel varchar(255),
+  CREATE PROCEDURE sp_lisa_manguasi (
+                                     IN nimi varchar(255), IN brand varchar(255), IN aasta date,
+                                     IN kategooria varchar(255),
+                                     IN tolge_nimi varchar(255), IN tolge_keel varchar(255),
                                      IN tugevus1 integer, IN tugevus2 integer, IN tyyp varchar(255),
                                      IN hind_praegune float, IN hind_algne float,
                                      IN manguviis varchar(255),
