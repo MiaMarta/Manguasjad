@@ -31,16 +31,20 @@
 
 #Protseduurid:
   #Lisa mänguasi, antud parameetritega.
-  CREATE PROCEDURE sp_klubimangijad (IN a_klubi_nimi varchar(100))
-  RESULT (
-          nimi varchar(202),
-          kuupaev date)
-  BEGIN
-  SELECT f_nimi(eesnimi, perenimi), CURRENT DATE
-  FROM isikud KEY JOIN klubid
-  WHERE nimi = a_klubi_nimi
-  ORDER BY 1;
-  END;
+  CREATE PROCEDURE sp_lisa_manguasi (IN nimi varchar(255), IN brand varchar(255), IN aasta date,
+                                    IN kategooria varchar(255),
+                                    IN tolge_nimi varchar(255), IN tolge_keel varchar(255),
+                                     IN tugevus1 integer, IN tugevus2 integer, IN tyyp varchar(255),
+                                     IN hind_praegune float, IN hind_algne float,
+                                     IN manguviis varchar(255),
+                                     IN laius float, IN pikkus float, IN korgus float, IN kaal float
+                                    )
+    BEGIN
+      SELECT f_nimi(eesnimi, perenimi), CURRENT DATE
+      FROM isikud KEY JOIN klubid
+      WHERE nimi = a_klubi_nimi
+      ORDER BY 1;
+    END;
 
 
   #Eemalda mänguasi, mille nimi, bränd ja väljastamisaasta on antud.
