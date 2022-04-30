@@ -34,19 +34,29 @@
   #parameetrid grupeeritud vastavate tulpadega
   #manguasi - kategooria - tolge - tugevus - hind - manguviis - suurus
   CREATE PROCEDURE sp_lisa_manguasi (
-                                     IN nimi varchar(255), IN brand varchar(255), IN aasta date,
-                                     IN kategooria varchar(255),
-                                     IN tolge_nimi varchar(255), IN tolge_keel varchar(255),
-                                     IN tugevus1 integer, IN tugevus2 integer, IN tyyp varchar(255),
+                                     IN manguasi_nimi varchar(255), IN manguasi_brand varchar(255), IN manguasi_aasta date,
+                                     IN kategooria_kategooria varchar(255),
+                                     IN tolge_keel varchar(255), IN tolge_nimi varchar(255),
+                                     IN tugevus_tugevus1 integer, IN tugevus_tugevus2 integer, IN tugevus_tyyp varchar(255),
                                      IN hind_praegune float, IN hind_algne float,
-                                     IN manguviis varchar(255),
-                                     IN laius float, IN pikkus float, IN korgus float, IN kaal float
+                                     IN manguviis_manguviis varchar(255),
+                                     IN suurus_laius float, IN suurus_pikkus float, IN suurus_korgus float, IN suurus_kaal float
                                     )
     BEGIN
-      SELECT f_nimi(eesnimi, perenimi), CURRENT DATE
-      FROM isikud KEY JOIN klubid
-      WHERE nimi = a_klubi_nimi
-      ORDER BY 1;
+      INSERT INTO manguasi (nimi, brand, aasta)
+      VALUES (manguasi_nimi, manguasi_brand, manguasi_aasta);
+      INSERT INTO kategooria (kategooria)
+      VALUES (kategooria_kategooria);
+      INSERT INTO tolge (keel, nimi)
+      VALUES (tolge_keel, tolge_nimi);
+      INSERT INTO tugevus (tugevus1, tugevus2, tyyp)
+      VALUES (tugevus_tugevus1, tugevus_tugevus2, tugevus_tyyp);
+      INSERT INTO hind (praegune, algne)
+      VALUES (hind_praegune, hind_algne);
+      INSERT INTO manguviis (manguviis)
+      VALUES (manguviis_manguviis);
+      INSERT INTO suurus (laius, pikkus, korgus, kaal)
+      VALUES (suurus_laius, suurus_pikkus, suurus_korgus, suurus_kaal);
     END;
 
 
