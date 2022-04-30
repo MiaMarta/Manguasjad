@@ -53,8 +53,10 @@
       INSERT INTO suurus (laius, pikkus, korgus, kaal)
       VALUES (suurus_laius, suurus_pikkus, suurus_korgus, suurus_kaal);
       
-      WHERE tolge.nimi = tolge_nimi AND tolge.keel = tolge_keel;
-      WHERE kategooria.kategooria = kategooria_kategooria;
+      INSERT INTO manguasi_tolge (id_tolge)
+      VALUES ((SELECT id FROM tolge WHERE tolge.keel = tolge_keel AND tolge.nimi = tolge_nimi));
+      INSERT INTO manguasi_kategooria (kategooria)
+      VALUES (kategooria_kategooria);
     END;
 
 
