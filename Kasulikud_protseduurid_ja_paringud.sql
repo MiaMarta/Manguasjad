@@ -50,10 +50,11 @@
       VALUES (tugevus_tugevus1, tugevus_tugevus2, tugevus_tyyp);
       INSERT INTO hind (praegune, algne)
       VALUES (hind_praegune, hind_algne);
+      INSERT INTO manguviis (manguviis)
+      VALUES (manguviis_manguviis);
       INSERT INTO suurus (laius, pikkus, korgus, kaal)
       VALUES (suurus_laius, suurus_pikkus, suurus_korgus, suurus_kaal);
       
-      WHERE manguviis.manguviis = manguviis_mangvuiis;
       WHERE kategooria.kategooria = kategooria_kategooria;
     END;
 
