@@ -1,5 +1,5 @@
 CREATE TABLE `manguasi` (
-	`id` INT NOT NULL UNIQUE,
+	`id` INT NOT NULL UNIQUE DEFAULT AUTOINCREMENT,
 	`nimi` varchar(255) NOT NULL,
 	`brand` varchar(255) NOT NULL,
 	`aasta` DATE NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE `kategooria` (
 );
 
 CREATE TABLE `tugevus` (
-	`id` INT NOT NULL UNIQUE,
+	`id` INT NOT NULL UNIQUE DEFAULT AUTOINCREMENT,
 	`tugevus1` INT NOT NULL,
 	`tugevus2` INT,
 	`tyyp` varchar(255),
@@ -34,7 +34,7 @@ CREATE TABLE `manguviis` (
 );
 
 CREATE TABLE `tolge` (
-	`id` INT NOT NULL UNIQUE,
+	`id` INT NOT NULL UNIQUE DEFAULT AUTOINCREMENT,
 	`keel` varchar(255) NOT NULL,
 	`nimi` varchar(255) NOT NULL,
 	PRIMARY KEY (`id`,`keel`,`nimi`)
@@ -74,7 +74,6 @@ ALTER TABLE `manguasi_tolge` ADD CONSTRAINT `fk_manguasi_tolge_tolge` FOREIGN KE
 ALTER TABLE `manguasi_kategooria` ADD CONSTRAINT `fk_manguasi_kategooria_manguasi` FOREIGN KEY (`manguasi_id`) REFERENCES `manguasi`(`id`);
 
 ALTER TABLE `manguasi_kategooria` ADD CONSTRAINT `fk_manguasi_kategooria_kategooria` FOREIGN KEY (`kategooria`) REFERENCES `kategooria`(`kategooria`);
-
 
 
 
