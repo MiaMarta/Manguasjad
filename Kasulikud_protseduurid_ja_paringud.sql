@@ -44,8 +44,6 @@
                                     )
     BEGIN
       INSERT INTO manguasi (nimi, brand, aasta)
-      INSERT INTO tolge (keel, nimi)
-      VALUES (tolge_keel, tolge_nimi);
       INSERT INTO tugevus (tugevus1, tugevus2, tyyp)
       VALUES (tugevus_tugevus1, tugevus_tugevus2, tugevus_tyyp);
       INSERT INTO hind (praegune, algne)
@@ -55,6 +53,7 @@
       INSERT INTO suurus (laius, pikkus, korgus, kaal)
       VALUES (suurus_laius, suurus_pikkus, suurus_korgus, suurus_kaal);
       
+      WHERE tolge.nimi = tolge_nimi AND tolge.keel = tolge_keel;
       WHERE kategooria.kategooria = kategooria_kategooria;
     END;
 
