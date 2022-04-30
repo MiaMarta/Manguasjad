@@ -31,6 +31,8 @@
 
 #Protseduurid:
   #Lisa mänguasi, antud parameetritega.
+  #parameetrid grupeeritud vastavate tulpadega
+  #manguasi - kategooria - tolge - tugevus - hind - manguviis - suurus
   CREATE PROCEDURE sp_lisa_manguasi (
                                      IN nimi varchar(255), IN brand varchar(255), IN aasta date,
                                      IN kategooria varchar(255),
